@@ -2,6 +2,8 @@
 
 #include <IRremote.h>
 int sensorSRoom = 0;
+int Btn_start_temp = 6;
+int Btn_stop_temp = 7;
 int count, readingSRoom, round_tempSR;
 float voltageSRoom, tempSRoomC, tempSRoomF;
 
@@ -17,7 +19,8 @@ void setup()
 
   pinMode(RECV_PIN, INPUT);
   pinMode(sensorSRoom, INPUT);
-  pinMode(pot, INPUT);
+  pinMode(Btn_start_temp, INPUT);
+  pinMode(Btn_stop_temp, INPUT);
 
   //Set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
