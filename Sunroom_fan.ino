@@ -21,20 +21,10 @@ void setup()
   pinMode(sensorSRoom, INPUT);
   pinMode(Btn_start_temp, INPUT);
   pinMode(Btn_stop_temp, INPUT);
-
-  //Set up the LCD's number of columns and rows:
-  lcd.begin(16, 2);
-  lcd.setCursor(0, 1);
-  lcd.print("Fan OFF   Diff 3");
-  //Move cursor to second line, first position
-  lcd.setCursor(0, 0);
-  lcd.print("SunR 68  FamR 67");
 }
 
 void loop()
 {
-  int potval = analogRead(pot);
-  potval = map(potval, 0, 1023, 70, 100);
   if (irrecv.decode(&results))
   {
     count = results.rawlen;
