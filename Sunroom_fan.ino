@@ -2,6 +2,8 @@
 
 #include <IRremote.h>
 int sensorSRoom = 0;
+int Btn_start_temp = 6;
+int Btn_stop_temp = 7;
 int count, readingSRoom, round_tempSR;
 float voltageSRoom, tempSRoomC, tempSRoomF;
 
@@ -17,7 +19,8 @@ void setup()
 
   pinMode(RECV_PIN, INPUT);
   pinMode(sensorSRoom, INPUT);
-  pinMode(pot, INPUT);
+  pinMode(Btn_start_temp, INPUT);
+  pinMode(Btn_stop_temp, INPUT);
 
   //Set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
@@ -44,7 +47,6 @@ void loop()
   //getting the voltage reading SRoom temperature sensor
   readingSRoom = analogRead(sensorSRoom);
 
-
   // converting that reading to voltage, for 3.3v arduino use 3.3
   voltageSRoom = readingSRoom * 5.0;
   voltageSRoom /= 1024.0;
@@ -58,10 +60,6 @@ void loop()
 
   Serial.print(" Sun Room: "); Serial.print(tempSRoomF);
   Serial.print("    Family Room: "); Serial.println(count);
-  lcd.setCursor(5, 0);
-  lcd.print(round_tempSR);
-  lcd.setCursor(14, 0);
-  lcd.print(count);
   delay(1000);
 }
 
