@@ -1,8 +1,6 @@
 //TMP36 Pin Variables
 
-#include <LiquidCrystal.h>
 #include <IRremote.h>
-const int pot = 1;
 int sensorSRoom = 0;
 int count, readingSRoom, round_tempSR;
 float voltageSRoom, tempSRoomC, tempSRoomF;
@@ -10,9 +8,6 @@ float voltageSRoom, tempSRoomC, tempSRoomF;
 int RECV_PIN = 5;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
-
-//Initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(2, 3, 8, 9, 10, 11);
 
 void setup()
 {
