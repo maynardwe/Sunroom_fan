@@ -12,7 +12,7 @@ decode_results results;
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("Familyroom_fan_control_9");
+  Serial.println("Sunroom_fan");
   irrecv.enableIRIn(); // Start the receiver
 
   pinMode(RECV_PIN, INPUT);
