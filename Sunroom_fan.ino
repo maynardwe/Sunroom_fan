@@ -4,7 +4,7 @@
 int sensorSRoom = 0;
 int Btn_start_temp = 6;
 int Btn_stop_temp = 7;
-int count, readingSRoom, round_tempSR;
+int count, readingSRoom, round_tempSR, start_temp, stop_temp, val;
 float voltageSRoom, tempSRoomC, tempSRoomF;
 
 int RECV_PIN = 5;
@@ -16,7 +16,6 @@ void setup()
   Serial.begin(9600);
   Serial.println("Sunroom_fan");
   irrecv.enableIRIn(); // Start the receiver
-
   pinMode(RECV_PIN, INPUT);
   pinMode(sensorSRoom, INPUT);
   pinMode(Btn_start_temp, INPUT);
@@ -25,6 +24,18 @@ void setup()
 
 void loop()
 {
+  val = digital_read(Btn_start_temp);
+  if (val == HIGH)
+  {
+    start_temp = tempSRoomF;
+  }
+  val = digital_read(Btn_stop_temp);
+  if (val == HIGH)
+  {
+    stop_temp = tempSRoomF;
+  }
+    
+  stop_temp = digital_read(Btn_stop_temp); 
   if (irrecv.decode(&results))
   {
     count = results.rawlen;
