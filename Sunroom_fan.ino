@@ -37,19 +37,15 @@ void loop()
     stop_temp = tempSRoomF;
   }
   
-  if start_temp == tempSRoomF
+  if (start_temp == tempSRoomF)
   {
-    
-    
-//  if (irrecv.decode(&results))
-//  {i
-//   count = results.rawlen;
-//    Serial.print("rx    "); Serial.print(count);
-//    count = (count / 2) + 50;
-//   Serial.print("    counverted   "); Serial.println(count);
-//    irrecv.resume(); // Receive the next value
-//  }
-
+    //turn on fan
+  }
+    if (stop_temp == tempSRoomF)
+  {
+    //turn off fan
+  }
+  
   //getting the voltage reading SRoom temperature sensor
   readingSRoom = analogRead(sensorSRoom);
 
@@ -62,10 +58,8 @@ void loop()
 
   // now convert to Fahrenheit
   tempSRoomF = (tempSRoomC * 9.0 / 5.0) + 32.0;
-  round_tempSR = (tempSRoomF + .5)*potval/100;
 
   Serial.print(" Sun Room: "); Serial.print(tempSRoomF);
-//  Serial.print("    Family Room: "); Serial.println(count);
   delay(1000);
 }
 
