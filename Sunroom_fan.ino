@@ -26,7 +26,7 @@ void loop()
     start_temp = tempSRoomF;
   }
   
-  int val digitalRead(Btn_stop_temp)
+  int val digitalRead(Btn_stop_temp);
   if (val == HIGH)
   {
     stop_temp = tempSRoomF;
