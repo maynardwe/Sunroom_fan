@@ -2,10 +2,10 @@
 
 #include <IRremote.h>
 int sensorSRoom = 0;
-int Btn_start_temp = 6;
-int Btn_stop_temp = 7;
-int count, readingSRoom, round_tempSR, start_temp, stop_temp, val;
-float voltageSRoom, tempSRoomC, tempSRoomF;
+int Btn_start_temp = 2;
+int Btn_stop_temp = 3;
+int count, readingSRoom, round_tempSR,  val;
+float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
 int RECV_PIN = 5;
 IRrecv irrecv(RECV_PIN);
@@ -15,11 +15,13 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Sunroom_fan");
-  irrecv.enableIRIn(); // Start the receiver
-  pinMode(RECV_PIN, INPUT);
+//  irrecv.enableIRIn(); // Start the receiver
+//  pinMode(RECV_PIN, INPUT);
   pinMode(sensorSRoom, INPUT);
   pinMode(Btn_start_temp, INPUT);
   pinMode(Btn_stop_temp, INPUT);
+  digitalWrite(Btn_start_temp, HIGH); //turn on internal pull-up to avoid using 10kohm pull-up resister
+  digitalWrite(Btn_stop_temp, HIGH); //turn on internal pull-up to avoid using 10kohm pull-up resister
 }
 
 void loop()
@@ -34,16 +36,19 @@ void loop()
   {
     stop_temp = tempSRoomF;
   }
-    
-  stop_temp = digital_read(Btn_stop_temp); 
-  if (irrecv.decode(&results))
+  
+  if start_temp == tempSRoomF
   {
-    count = results.rawlen;
-    Serial.print("rx    "); Serial.print(count);
-    count = (count / 2) + 50;
-    Serial.print("    counverted   "); Serial.println(count);
-    irrecv.resume(); // Receive the next value
-  }
+    
+    
+//  if (irrecv.decode(&results))
+//  {i
+//   count = results.rawlen;
+//    Serial.print("rx    "); Serial.print(count);
+//    count = (count / 2) + 50;
+//   Serial.print("    counverted   "); Serial.println(count);
+//    irrecv.resume(); // Receive the next value
+//  }
 
   //getting the voltage reading SRoom temperature sensor
   readingSRoom = analogRead(sensorSRoom);
@@ -60,7 +65,7 @@ void loop()
   round_tempSR = (tempSRoomF + .5)*potval/100;
 
   Serial.print(" Sun Room: "); Serial.print(tempSRoomF);
-  Serial.print("    Family Room: "); Serial.println(count);
+//  Serial.print("    Family Room: "); Serial.println(count);
   delay(1000);
 }
 
