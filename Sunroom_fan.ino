@@ -4,7 +4,7 @@
 int sensorSRoom = 0;
 int Btn_start_temp = 2;
 int Btn_stop_temp = 3;
-int ledPin = 13;
+int ledPin = 7;
 int count, readingSRoom, round_tempSR,  val;
 float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
@@ -12,14 +12,11 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Sunroom_fan");
-//  irrecv.enableIRIn(); // Start the receiver
-//  pinMode(RECV_PIN, INPUT);
   pinMode(sensorSRoom, INPUT);
   pinMode(Btn_start_temp, INPUT);
   pinMode(Btn_stop_temp, INPUT);
-  digitalWrite(Btn_start_temp, HIGH); //turn on internal pull-up to avoid using 10kohm pull-up resister
-  digitalWrite(Btn_stop_temp, HIGH); //turn on internal pull-up to avoid using 10kohm pull-up resister
-}
+  pinMode(ledPin, OUTPUT);
+ }
 
 void loop()
 {
@@ -58,6 +55,6 @@ void loop()
   Serial.print(" Start Fan at "); Serial.print(start_temp);
   Serial.print(" Stop Fan at "); Serial.print(stop_temp);
   
-  delay(1000);
+  delay(2000);
 }
 
