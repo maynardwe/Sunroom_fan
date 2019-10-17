@@ -57,6 +57,9 @@ void loop()
   tempSRoomF = (tempSRoomC * 9.0 / 5.0) + 32.0;
 
   Serial.print(" Sun Room: "); Serial.print(tempSRoomF);
+  Serial.print(" Start Fan at "); Serial.print(start_temp);
+  Serial.print(" Stop Fan at "); Serial.print(stop_temp);
+  
   delay(1000);
 }
 
