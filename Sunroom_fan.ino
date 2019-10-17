@@ -20,13 +20,13 @@ void setup()
 
 void loop()
 {
-  int val = digitalRead(Btn_start_temp);
+  val = digitalRead(Btn_start_temp);
   if (val == HIGH)
   {
     start_temp = tempSRoomF;
   }
   
-  int val = digitalRead(Btn_stop_temp);
+  val = digitalRead(Btn_stop_temp);
   if (val == HIGH)
   {
     stop_temp = tempSRoomF;
@@ -58,6 +58,5 @@ void loop()
   Serial.print(" Start Fan at "); Serial.print(start_temp);
   Serial.print(" Stop Fan at "); Serial.print(stop_temp);
   
-  delay(1000);
+delay(1000);
 }
-
