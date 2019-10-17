@@ -5,7 +5,9 @@ int sensorSRoom = 0;
 int Btn_start_temp = 2;
 int Btn_stop_temp = 3;
 int ledPin = 7;
-int count, readingSRoom, round_tempSR,  val;
+float val1 = 0;
+float val2 = 0;
+int count, readingSRoom, round_tempSR,  
 float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
 void setup()
@@ -20,14 +22,14 @@ void setup()
 
 void loop()
 {
-  int val = digitalRead(Btn_start_temp);
-  if (val == HIGH)
+  int val1 = digitalRead(Btn_start_temp);
+  if (val1 == HIGH)
   {
     start_temp = tempSRoomF;
   }
   
-  int val = digitalRead(Btn_stop_temp);
-  if (val == HIGH)
+  int val2 = digitalRead(Btn_stop_temp);
+  if (val2 == HIGH)
   {
     stop_temp = tempSRoomF;
   }
