@@ -23,13 +23,11 @@ void setup()
 
 void loop()
 {
-  val = digitalRead(Btn_start_temp);
-  if (val == HIGH)
+  if (digitalRead(Btn_start_temp) == HIGH)
   {
     start_temp = tempSRoomF;
   }
-  val = digitalRead(Btn_stop_temp);
-  if (val == HIGH)
+  if (digitalRead(Btn_stop_temp) == HIGH)
   {
     stop_temp = tempSRoomF;
   }
