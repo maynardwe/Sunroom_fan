@@ -4,7 +4,7 @@
 int sensorSRoom = 0;
 int Btn_start_temp = 2;
 int Btn_stop_temp = 3;
-int ledPin = 1;
+int ledPin = 13;
 int count, readingSRoom, round_tempSR,  val;
 float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
