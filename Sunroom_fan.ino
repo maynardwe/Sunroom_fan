@@ -8,10 +8,6 @@ int ledPin = 13;
 int count, readingSRoom, round_tempSR,  val;
 float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
-int RECV_PIN = 5;
-IRrecv irrecv(RECV_PIN);
-decode_results results;
-
 void setup()
 {
   Serial.begin(9600);
@@ -27,12 +23,12 @@ void setup()
 
 void loop()
 {
-  val = digital_read(Btn_start_temp);
+  val = digitalRead(Btn_start_temp);
   if (val == HIGH)
   {
     start_temp = tempSRoomF;
   }
-  val = digital_read(Btn_stop_temp);
+  val = digitalRead(Btn_stop_temp);
   if (val == HIGH)
   {
     stop_temp = tempSRoomF;
