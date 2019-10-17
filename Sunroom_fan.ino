@@ -55,6 +55,6 @@ void loop()
   Serial.print(" Start Fan at "); Serial.print(start_temp);
   Serial.print(" Stop Fan at "); Serial.print(stop_temp);
   
-  delay(2000);
+  delay(1000);
 }
 
