@@ -1,9 +1,10 @@
 //TMP36 Pin Variables
 
-#include <IRremote.h>
+//#include <IRremote.h>
 int sensorSRoom = 0;
 int Btn_start_temp = 2;
 int Btn_stop_temp = 3;
+int ledPin = 1;
 int count, readingSRoom, round_tempSR,  val;
 float voltageSRoom, tempSRoomC, tempSRoomF, start_temp, stop_temp;
 
@@ -39,11 +40,11 @@ void loop()
   
   if (start_temp == tempSRoomF)
   {
-    //turn on fan
+    digitalWrite(ledPin, HIGH);
   }
     if (stop_temp == tempSRoomF)
   {
-    //turn off fan
+    digitalWrite(ledPin, LOW);
   }
   
   //getting the voltage reading SRoom temperature sensor
