@@ -20,13 +20,13 @@ void setup()
 
 void loop()
 {
-  int val digitalRead(Btn_start_temp);
+  int val = digitalRead(Btn_start_temp);
   if (val == HIGH)
   {
     start_temp = tempSRoomF;
   }
   
-  int val digitalRead(Btn_stop_temp);
+  int val = digitalRead(Btn_stop_temp);
   if (val == HIGH)
   {
     stop_temp = tempSRoomF;
